@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "electron .",
-    "build:windows": "electron-builder --win nsis --x64"
+    "build:windows": "electron-builder --win nsis --x64 --publish never"
   },
   "devDependencies": {
     "electron": "^35.1.5",
