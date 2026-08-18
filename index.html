@@ -14,6 +14,14 @@
   <link rel="stylesheet" href="theme.css">
 </head>
 <body>
+  <section id="mobile-download-screen" aria-label="Télécharger l'application mobile">
+    <div class="mobile-download-content">
+      <a href="https://com-yahiasaad-saadpark.en.uptodown.com/android" title="Download SaadPark">
+        <img src="https://stc.utdstc.com/img/mediakit/download-aao-big.png" alt="Download SaadPark">
+      </a>
+      <p>Cette version ne peut pas être utilisée sur téléphone.<br>Veuillez télécharger la version mobile.</p>
+    </div>
+  </section>
   <div id="toast-region" class="toast-region" aria-live="polite"></div>
 
   <main id="auth-screen" class="auth-screen">
@@ -23,7 +31,7 @@
       <h1 id="auth-title">Bienvenue</h1>
       <p id="auth-copy" class="muted">Connectez-vous pour gérer votre parc automobile.</p>
       <form id="login-form" class="auth-form">
-        <label>Email<input name="email" type="email" autocomplete="email" required placeholder="your email"></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required placeholder="vous@entreprise.com"></label>
         <label>Mot de passe<input name="password" type="password" autocomplete="current-password" required placeholder="••••••••"></label>
         <button class="btn btn-primary btn-block" type="submit">Se connecter</button>
       </form>

@@ -46,3 +46,53 @@ body {
 .btn .icon {
   vertical-align: -5px;
 }
+
+#mobile-download-screen {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  #mobile-download-screen {
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 28px;
+    background: #fff;
+    text-align: center;
+  }
+
+  .mobile-download-content {
+    display: grid;
+    justify-items: center;
+    gap: 22px;
+    max-width: 340px;
+  }
+
+  .mobile-download-content a {
+    display: inline-block;
+  }
+
+  .mobile-download-content img {
+    display: block;
+    width: min(280px, 100%);
+    height: auto;
+  }
+
+  .mobile-download-content p {
+    margin: 0;
+    color: #1f2937;
+    font-family: Ubuntu, ui-sans-serif, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  #auth-screen,
+  #app-shell,
+  #modal,
+  #toast-region {
+    display: none !important;
+  }
+}
