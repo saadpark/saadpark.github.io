@@ -1,0 +1,48 @@
+/* Saad Park visual identity overrides. */
+body {
+  font-family: Ubuntu, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.brand-mark {
+  display: block;
+  width: 43px;
+  height: 43px;
+  object-fit: contain;
+  border-radius: 9px;
+  background: #fff;
+  border: 1px solid #d8dce8;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -5px;
+}
+
+.nav-item .icon {
+  width: 19px;
+  height: 19px;
+  margin-right: 7px;
+  color: #c9d1e2;
+}
+
+.nav-item.active .icon,
+.nav-item:hover .icon {
+  color: #fff;
+}
+
+.icon-button .icon {
+  vertical-align: -5px;
+}
+
+.list-icon .icon,
+.inline-icon .icon,
+.btn .icon {
+  vertical-align: -5px;
+}
