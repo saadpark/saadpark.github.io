@@ -1,0 +1,36 @@
+name: Build Saad Park Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    name: Build SaadPark Setup EXE
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout web project
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install desktop dependencies
+        run: npm ci
+
+      - name: Build Windows installer
+        run: npm run build:windows
+
+      - name: Upload SaadPark Setup
+        uses: actions/upload-artifact@v4
+        with:
+          name: SaadPark-Windows-Setup
+          path: release/*.exe
