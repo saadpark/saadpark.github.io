@@ -1,0 +1,40 @@
+{
+  "name": "SaadPark",
+  "version": "1.7.2",
+  "description": "Saad Park desktop application",
+  "main": "desktop/main.cjs",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build:windows": "electron-builder --win nsis --x64"
+  },
+  "devDependencies": {
+    "electron": "^35.1.5",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.yahiasaad.saadpark.desktop",
+    "productName": "Saad Park",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "index.html",
+      "styles.css",
+      "theme.css",
+      "app.js",
+      "assets/**",
+      "desktop/**",
+      "package.json"
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "SaadPark-Setup-${version}.exe"
+    }
+  }
+}
