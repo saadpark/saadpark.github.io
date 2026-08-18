@@ -94,8 +94,23 @@ async function renderFuel() {
 }
 
 function init() {
+  setupDesktopTitlebar();
   $('#login-form').onsubmit = login; $('#register-form').onsubmit = register; $('#auth-switch').onclick = () => { const registering = !$('#register-form').classList.contains('hidden'); $('#register-form').classList.toggle('hidden', registering); $('#login-form').classList.toggle('hidden', !registering); $('#auth-title').textContent = registering ? 'Bienvenue' : 'Créer un compte'; $('#auth-copy').textContent = registering ? 'Connectez-vous pour gérer votre parc automobile.' : 'Commencez à gérer votre parc automobile.'; $('#auth-switch').textContent = registering ? 'Créer un compte' : 'J’ai déjà un compte'; };
   $$('.nav-item[data-view]').forEach(button => button.onclick = () => render(button.dataset.view)); $('#logout-button').onclick = logout; $('#top-notifications').onclick = () => render('notifications'); $('.modal-close').onclick = closeModal; $('#modal').onclick = event => { if (event.target === $('#modal')) closeModal(); };
   if (!state.token) return; api('/api/mobile/me').then(data => { state.user = data.user; $('#auth-screen').classList.add('hidden'); $('#app-shell').classList.remove('hidden'); setupShell(); render(); }).catch(logout);
+}
+
+function setupDesktopTitlebar() {
+  const desktop = window.saadParkDesktop;
+  if (!desktop) return;
+
+  document.body.classList.add('desktop-app');
+  $('#window-minimize').onclick = () => desktop.minimize();
+  $('#window-maximize').onclick = async () => {
+    const maximized = await desktop.toggleMaximize();
+    document.body.classList.toggle('window-maximized', maximized);
+  };
+  $('#window-close').onclick = () => desktop.close();
+  desktop.onMaximizedChange((maximized) => document.body.classList.toggle('window-maximized', maximized));
 }
 init();

@@ -1,6 +1,100 @@
 /* Saad Park visual identity overrides. */
 body {
   font-family: Ubuntu, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Desktop-only custom caption bar. It is never displayed in the website. */
+.desktop-titlebar {
+  display: none;
+}
+
+.desktop-app {
+  padding-top: 40px;
+}
+
+.desktop-app .desktop-titlebar {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background: #fff;
+  border-bottom: 1px solid #e6e9f0;
+  box-shadow: 0 1px 8px rgba(16, 25, 46, .05);
+  color: #10192e;
+  -webkit-app-region: drag;
+}
+
+.desktop-titlebar-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .1px;
+}
+
+.desktop-titlebar-caption img {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.desktop-window-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 40px;
+  -webkit-app-region: no-drag;
+}
+
+.window-control {
+  display: grid;
+  width: 46px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #344054;
+  cursor: pointer;
+  transition: background .16s ease, color .16s ease;
+}
+
+.window-control:hover { background: #edf1f8; color: #10192e; }
+.window-close:hover { background: #e72e36; color: #fff; }
+
+.window-control svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.desktop-app .auth-screen,
+.desktop-app .app-shell { min-height: calc(100vh - 40px); }
+
+.desktop-app .sidebar { top: 40px; height: calc(100vh - 40px); }
+
+.desktop-app.window-maximized .desktop-titlebar { border-radius: 0; }
+
+/* Forms must stay editable; the rest of the interface cannot be selected. */
+input,
+textarea,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 .brand-mark {
